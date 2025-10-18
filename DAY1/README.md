@@ -1224,7 +1224,7 @@ git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git
 
 
 
-now the directory will be looks like this 
+➤ now the directory will be looks like this 
 
 ```bash
 ~/Desktop/open_source_tapout/week4/
@@ -1269,7 +1269,7 @@ now the directory will be looks like this
 
 
 
-lets explore what inside a actual spice model 
+🚩 lets explore what inside a actual spice model 
 
 ```bash
 cd design 
@@ -1283,18 +1283,18 @@ nano day1_nfet_idvds_L025_W065.spice
 <img width="1087" height="402" alt="28" src="https://github.com/user-attachments/assets/36744680-1bb4-4438-96f2-3fb3f431cff4" />
 
 
-navigate to the design folder 
+👉 Navigate to the design folder 
 
 ```bash
 ~/Desktop/open_source_tapout/week4/sky130CircuitDesignWorkshop/design: 
 ```
 
-if you dont have the ngspice download it 
+‼️ If you dont have the ngspice download it 
 
 ```bash
 sudo apt install ngspice
 ```
-- after installed the ngspice 
+📌 After installed the ngspice 
 
 ```
 ngspice day1_nfet_idvds_L025_W065.spice
@@ -1302,8 +1302,9 @@ ngspice day1_nfet_idvds_L025_W065.spice
 
 <img width="1091" height="781" alt="29" src="https://github.com/user-attachments/assets/da117eb9-dda8-419c-87d6-db1909618eb7" />
 
+---
 
-- then plot the vdd 
+📌 Then plot the vdd 
 ```
 plot -vdd#branch
 ```
