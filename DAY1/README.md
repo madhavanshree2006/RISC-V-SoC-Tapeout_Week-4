@@ -10,7 +10,7 @@
 - Example:
     - **Inverter** – one PMOS (top) and one NMOS (bottom).
         
-        <p align="center"><img src="./ASSETS/1.png" width="700" alt="image 1"/></p>
+        <p align="center"><img src="./ASSETS/1.png" width="350" alt="image 1"/></p>
         
     
     - The **drains** are tied together → output node.
@@ -56,7 +56,7 @@
 
 - Example of two buffer cells: **CBuff1** and **CBuff2.**
     
-<p align="center"><img src="./ASSETS/4.png" width="700" alt="image 4"/></p>
+<p align="center"><img src="./ASSETS/4.png" width="500" alt="image 4"/></p>
     
 
 - Each has a **delay table** with parameters:
@@ -83,7 +83,7 @@
 
 ### 1️⃣ What is an NMOS?
 
-<p align="center"><img src="./ASSETS/6.png" width="700" alt="image 6"/></p>
+<p align="center"><img src="./ASSETS/6.png" width="500" alt="image 6"/></p>
 
 - **N-channel MOSFET** built on a **p-type substrate** (pMOS is the mirror: p-channel on **n-type**).
 - **Four terminals:** **G**ate (G), **D**rain (D), **S**ource (S), **B**ody/Substrate (B).
@@ -95,7 +95,7 @@
 
 ### 2️⃣ Physical structure (cross-section mental model)
 
-<p align="center"><img src="./ASSETS/7.png" width="700" alt="image 7"/></p>
+<p align="center"><img src="./ASSETS/7.png" width="400" alt="image 7"/></p>
 
 - **Isolation regions** on left/right → electrically separates neighboring transistors.
 - **n+ diffusion** regions placed with a gap → become **Source** and **Drain**.
@@ -117,7 +117,7 @@
 
 ### 4️⃣ Zero-bias (V_GS = 0, all nodes at 0 V)
 
-<p align="center"><img src="./ASSETS/8.png" width="700" alt="image 8"/></p>
+<p align="center"><img src="./ASSETS/8.png" width="400" alt="image 8"/></p>
 
 - Two back-to-back **p–n junctions** (p-substrate ↔ n+ source/drain) are **reverse-biased/off**.
 - No conduction path **S ↔ D** → **very high resistance** channel (device “OFF”).
@@ -126,7 +126,7 @@
 
 ### 5️⃣ Turn the gate up: capacitor view → charge choreography
 
-<p align="center"><img src="./ASSETS/9.png" width="700" alt="image 9"/></p>
+<p align="center"><img src="./ASSETS/9.png" width="500" alt="image 9"/></p>
 
 - Apply small **+V_G**: gate plate gets **+ charge** → repels **holes** (majority carriers) from the surface.
 - Near the surface: holes deplete → leave behind **negatively charged acceptor ions** → **depletion region** forms.
@@ -169,7 +169,7 @@ Now let’s go deeper 👇
 
 ### Formation of the Depletion Region
 
-<p align="center"><img src="./ASSETS/11.png" width="700" alt="image 11"/></p>
+<p align="center"><img src="./ASSETS/11.png" width="550" alt="image 11"/></p>
 
 - As soon as a **positive gate voltage** is applied, holes are pushed deeper into the substrate.
 - This leaves behind a region **depleted** of its majority carriers (holes).
@@ -281,7 +281,7 @@ That additional potential (ΔV₁) is due to the **body effect**.
 
 ### Threshold Voltage Equation
 
-<p align="center"><img src="./ASSETS/14.png" width="700" alt="image 14"/></p>
+<p align="center"><img src="./ASSETS/14.png" width="400" alt="image 14"/></p>
 
 $$
 VT=VT0+γ(2φF+VSB−2φF)
@@ -338,7 +338,7 @@ This represents the energy difference between intrinsic and Fermi levels in the 
 
 ### 1️⃣ Transition from Cutoff → Linear
 
-<p align="center"><img src="./ASSETS/15.png" width="700" alt="image 15"/></p>
+<p align="center"><img src="./ASSETS/15.png" width="400" alt="image 15"/></p>
 
 - In **cutoff region**, $V_{GS} < V_T$ → no inversion → transistor **OFF**.  
 - When $V_{GS} \ge V_T$ → an **n-type inversion channel** forms.  
@@ -406,7 +406,7 @@ $$
 
 ## 🔹 Voltage Along the Channel — $V(x)$
 
-<p align="center"><img src="./ASSETS/16.png" width="700" alt="image 16"/></p>
+<p align="center"><img src="./ASSETS/16.png" width="500" alt="image 16"/></p>
 
 - $V(x)$ is the local potential at position $x$ along the MOSFET channel (from source to drain).  
 - At the source: $V(0) = 0\ \text{V}$  
@@ -622,7 +622,7 @@ $$
 
 ## 🔹 Linear Region Approximation
 
-<p align="center"><img src="./ASSETS/17.png" width="700" alt="image 17"/></p>
+<p align="center"><img src="./ASSETS/17.png" width="500" alt="image 17"/></p>
 
 For **$V_{DS} \ll V_{GS} - V_T$** (small drain voltage), the quadratic term is negligible:
 
@@ -654,10 +654,6 @@ $$
 
 
 
-
-
-
-# 10 
 
 # NMOS — Linear Region Drain Current & $V_{GS}/V_{DS}$ Sweep
 
@@ -723,7 +719,6 @@ A more efficient approach is to use **SPICE simulations**:
 
 
 
-# 11
 
 ## NMOS — Pinch-Off & Saturation Region
 
@@ -754,7 +749,7 @@ $$
 - Channel voltage at drain end:
 
 
-<p align="center"><img src="./ASSETS/18.png" width="700" alt="image 18"/></p>
+<p align="center"><img src="./ASSETS/18.png" width="500" alt="image 18"/></p>
 
 
 $$
@@ -782,7 +777,7 @@ $$
 
 ### 🔹 Pinch-Off Phenomenon ✂️
 
-<p align="center"><img src="./ASSETS/19.png" width="700" alt="image 19"/></p>
+<p align="center"><img src="./ASSETS/19.png" width="500" alt="image 19"/></p>
 
 
 - Occurs when:
@@ -818,7 +813,7 @@ $$
 
 
 
-# 12
+
 
 # NMOS — Saturation Region & Drain Current
 
@@ -873,7 +868,7 @@ $$
 
 ## 🔹 Channel Length Modulation (λ) 📏
 
-<p align="center"><img src="./ASSETS/20.png" width="700" alt="image 20"/></p>
+<p align="center"><img src="./ASSETS/20.png" width="500" alt="image 20"/></p>
 
 - Effective channel length decreases slightly as $V_{DS}$ or $V_{GS}$ increases
 - Introduce **channel length modulation factor** $(1 + \lambda V_{DS})$:
@@ -979,7 +974,7 @@ $$
 ---
 ## SPICE Simulation Flow
 
-<p align="center"><img src="./ASSETS/22.png" width="700" alt="image 22"/></p>
+<p align="center"><img src="./ASSETS/22.png" width="400" alt="image 22"/></p>
 
 ---
 
@@ -998,7 +993,7 @@ It’s like giving SPICE a **personality file 🧠** for your transistor.
 ```
 
 For an example, let us take a circuit 
-<p align="center"><img src="./ASSETS/23.png" width="700" alt="image 23"/></p>
+<p align="center"><img src="./ASSETS/23.png" width="600" alt="image 23"/></p>
 
 
 # How to Write a SPICE Model for a MOSFET
@@ -1114,7 +1109,7 @@ Add a simulation command such as:
 ---
 
 ### 🔹 Step 1: Linking the Technology / Model File
-<p align="center"><img src="./ASSETS/24.png" width="700" alt="image 24"/></p>
+<p align="center"><img src="./ASSETS/24.png" width="600" alt="image 24"/></p>
 
 
 
