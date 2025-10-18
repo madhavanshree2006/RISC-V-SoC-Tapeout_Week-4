@@ -10,7 +10,7 @@
 - Example:
     - **Inverter** – one PMOS (top) and one NMOS (bottom).
         
-        ![1.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/1.png)
+        <p align="center"><img src="./ASSETS/1.png" width="700" alt="image 1"/></p>
         
     
     - The **drains** are tied together → output node.
@@ -26,7 +26,8 @@
 - Once the circuit is designed, it must be **fed with input waveforms** to analyze output behavior.
 - SPICE simulates the electrical characteristics of each transistor to produce **voltage–time waveforms**.
     
-    ![2.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/2.png)
+    <p align="center"><img src="./ASSETS/2.png" width="700" alt="image 2"/></p>
+
     
 
 - These waveforms show:
@@ -40,7 +41,8 @@
 
 ### **3️⃣ Why SPICE Matters**
 
-![3.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/3.png)
+<p align="center"><img src="./ASSETS/3.png" width="700" alt="image 3"/></p>
+
 
 - In VLSI flow (CTS, STA, Crosstalk, Physical Design), the term “SPICE” isn’t explicitly used — but its results form the **foundation of all timing models**.
 - Without SPICE characterization:
@@ -54,7 +56,7 @@
 
 - Example of two buffer cells: **CBuff1** and **CBuff2.**
     
-    ![4.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/4.png)
+<p align="center"><img src="./ASSETS/4.png" width="700" alt="image 4"/></p>
     
 
 - Each has a **delay table** with parameters:
@@ -63,7 +65,7 @@
 - Table entries contain **delay values** for various combinations of slew and load.
 - For example:
     
-    ![5.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/5.png)
+<p align="center"><img src="./ASSETS/5.png" width="700" alt="image 5"/></p>
     
 
 - If input slew = 80 ps, output load = 70 fF → delay = x22 (CBuff1).
@@ -81,7 +83,7 @@
 
 ### 1️⃣ What is an NMOS?
 
-![6.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/6.png)
+<p align="center"><img src="./ASSETS/6.png" width="700" alt="image 6"/></p>
 
 - **N-channel MOSFET** built on a **p-type substrate** (pMOS is the mirror: p-channel on **n-type**).
 - **Four terminals:** **G**ate (G), **D**rain (D), **S**ource (S), **B**ody/Substrate (B).
@@ -93,7 +95,7 @@
 
 ### 2️⃣ Physical structure (cross-section mental model)
 
-![7.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/7.png)
+<p align="center"><img src="./ASSETS/7.png" width="700" alt="image 7"/></p>
 
 - **Isolation regions** on left/right → electrically separates neighboring transistors.
 - **n+ diffusion** regions placed with a gap → become **Source** and **Drain**.
@@ -115,7 +117,7 @@
 
 ### 4️⃣ Zero-bias (V_GS = 0, all nodes at 0 V)
 
-![8.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/8.png)
+<p align="center"><img src="./ASSETS/8.png" width="700" alt="image 8"/></p>
 
 - Two back-to-back **p–n junctions** (p-substrate ↔ n+ source/drain) are **reverse-biased/off**.
 - No conduction path **S ↔ D** → **very high resistance** channel (device “OFF”).
@@ -124,7 +126,7 @@
 
 ### 5️⃣ Turn the gate up: capacitor view → charge choreography
 
-![9.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/9.png)
+<p align="center"><img src="./ASSETS/9.png" width="700" alt="image 9"/></p>
 
 - Apply small **+V_G**: gate plate gets **+ charge** → repels **holes** (majority carriers) from the surface.
 - Near the surface: holes deplete → leave behind **negatively charged acceptor ions** → **depletion region** forms.
@@ -153,7 +155,7 @@
 
 ### Step 1: What Happens When We Increase Gate Voltage (V<sub>GS</sub>)
 
-![10.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/10.png)
+<p align="center"><img src="./ASSETS/10.png" width="700" alt="image 10"/></p>
 
 At the end of the previous discussion, we had:
 
@@ -167,7 +169,7 @@ Now let’s go deeper 👇
 
 ### Formation of the Depletion Region
 
-![11.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/11.png)
+<p align="center"><img src="./ASSETS/11.png" width="700" alt="image 11"/></p>
 
 - As soon as a **positive gate voltage** is applied, holes are pushed deeper into the substrate.
 - This leaves behind a region **depleted** of its majority carriers (holes).
@@ -180,7 +182,7 @@ Now let’s go deeper 👇
 
 ### Step 2: The Birth of an n-Channel (Inversion)
 
-![12.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/12.png)
+<p align="center"><img src="./ASSETS/12.png" width="700" alt="image 12"/></p>
 
 As V<sub>GS</sub> continues to increase:
 
@@ -249,7 +251,7 @@ $$
 
 ## 🌩️ NMOS — Threshold Voltage and Body Effect
 
-![13.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/13.png)
+<p align="center"><img src="./ASSETS/13.png" width="700" alt="image 13"/></p>
 
 When a positive substrate bias (**V<sub>SB</sub> > 0**) is applied:
 
@@ -279,7 +281,7 @@ That additional potential (ΔV₁) is due to the **body effect**.
 
 ### Threshold Voltage Equation
 
-![14.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/14.png)
+<p align="center"><img src="./ASSETS/14.png" width="700" alt="image 14"/></p>
 
 $$
 VT=VT0+γ(2φF+VSB−2φF)
@@ -336,7 +338,7 @@ This represents the energy difference between intrinsic and Fermi levels in the 
 
 ### 1️⃣ Transition from Cutoff → Linear
 
-![15.png](week4%2028b5f99c9dcb804cad8ed2b9ee2f1490/15.png)
+<p align="center"><img src="./ASSETS/15.png" width="700" alt="image 15"/></p>
 
 - In **cutoff region**, $V_{GS} < V_T$ → no inversion → transistor **OFF**.  
 - When $V_{GS} \ge V_T$ → an **n-type inversion channel** forms.  
@@ -404,7 +406,7 @@ $$
 
 ## 🔹 Voltage Along the Channel — $V(x)$
 
-<img width="725" height="970" alt="16" src="https://github.com/user-attachments/assets/96d5ff83-65c1-42e3-93e8-16437402ea9d" />
+<p align="center"><img src="./ASSETS/16.png" width="700" alt="image 16"/></p>
 
 - $V(x)$ is the local potential at position $x$ along the MOSFET channel (from source to drain).  
 - At the source: $V(0) = 0\ \text{V}$  
@@ -620,7 +622,7 @@ $$
 
 ## 🔹 Linear Region Approximation
 
-<img width="676" height="470" alt="17" src="https://github.com/user-attachments/assets/d036831c-a45d-4c0a-bd03-6a6722bee919" />
+<p align="center"><img src="./ASSETS/17.png" width="700" alt="image 17"/></p>
 
 For **$V_{DS} \ll V_{GS} - V_T$** (small drain voltage), the quadratic term is negligible:
 
@@ -752,7 +754,7 @@ $$
 - Channel voltage at drain end:
 
 
-<img width="612" height="383" alt="18" src="https://github.com/user-attachments/assets/29c4df45-9f7d-47fc-afc9-1ff45168579f" />
+<p align="center"><img src="./ASSETS/18.png" width="700" alt="image 18"/></p>
 
 
 $$
@@ -780,7 +782,7 @@ $$
 
 ### 🔹 Pinch-Off Phenomenon ✂️
 
-<img width="673" height="308" alt="19" src="https://github.com/user-attachments/assets/9d324f57-0425-4963-9e1a-aa8a80e4fcbc" />
+<p align="center"><img src="./ASSETS/19.png" width="700" alt="image 19"/></p>
 
 
 - Occurs when:
@@ -822,7 +824,7 @@ $$
 
 ## 🔹 Recap: Linear vs Saturation Region
 
-<img width="612" height="383" alt="21" src="https://github.com/user-attachments/assets/8339453b-7e9c-4047-aa9e-0dd096e4bd52" />
+<p align="center"><img src="./ASSETS/21.png" width="700" alt="image 21"/></p>
 
 - In the **linear region ⚡**:
   - Channel voltage: $V_\text{channel} = V_{GS} - V_{DS}$
@@ -871,7 +873,7 @@ $$
 
 ## 🔹 Channel Length Modulation (λ) 📏
 
-<img width="482" height="386" alt="20" src="https://github.com/user-attachments/assets/6f342aaf-d5fc-4263-9e5a-528f4011aa0c" />
+<p align="center"><img src="./ASSETS/20.png" width="700" alt="image 20"/></p>
 
 - Effective channel length decreases slightly as $V_{DS}$ or $V_{GS}$ increases
 - Introduce **channel length modulation factor** $(1 + \lambda V_{DS})$:
@@ -977,7 +979,8 @@ $$
 ---
 ## SPICE Simulation Flow
 
-<img width="370" height="742" alt="22" src="https://github.com/user-attachments/assets/def05fdc-070b-4fdf-b621-fb1d84aeaaba" />
+<p align="center"><img src="./ASSETS/22.png" width="700" alt="image 22"/></p>
+
 ---
 
 ## How to Write a SPICE Model for a MOSFET
@@ -995,7 +998,8 @@ It’s like giving SPICE a **personality file 🧠** for your transistor.
 ```
 
 For an example, let us take a circuit 
-<img width="691" height="441" alt="23" src="https://github.com/user-attachments/assets/d61f5570-7f4d-4633-9b68-dfbb8eb250fe" />
+<p align="center"><img src="./ASSETS/23.png" width="700" alt="image 23"/></p>
+
 
 # How to Write a SPICE Model for a MOSFET
 
@@ -1110,7 +1114,7 @@ Add a simulation command such as:
 ---
 
 ### 🔹 Step 1: Linking the Technology / Model File
-<img width="898" height="569" alt="24" src="https://github.com/user-attachments/assets/a4e49709-befb-45ac-8946-fdce17eddc6e" />
+<p align="center"><img src="./ASSETS/24.png" width="700" alt="image 24"/></p>
 
 
 
@@ -1220,7 +1224,7 @@ First step clone this git repo...
 ```bash
 git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git
 ```
-<img width="1097" height="495" alt="25" src="https://github.com/user-attachments/assets/8fd6a86d-650a-4cde-9bc9-eedbc0dd1dc0" />
+<p align="center"><img src="./ASSETS/25.png" width="700" alt="image 25"/></p>
 
 
 
@@ -1265,7 +1269,7 @@ git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git
 
 ```
 
-<img width="1097" height="707" alt="26" src="https://github.com/user-attachments/assets/168c2940-2d90-4fe9-b75f-19597ccc8a2d" />
+<p align="center"><img src="./ASSETS/26.png" width="700" alt="image 26"/></p>
 
 
 
@@ -1277,10 +1281,10 @@ ls
 
 nano day1_nfet_idvds_L025_W065.spice
 ```
-<img width="1087" height="402" alt="27" src="https://github.com/user-attachments/assets/798cfaa5-ab4c-4bc5-9d63-5d0437f5ca20" />
+<p align="center"><img src="./ASSETS/27.png" width="700" alt="image 27"/></p>
 
 
-<img width="1087" height="402" alt="28" src="https://github.com/user-attachments/assets/36744680-1bb4-4438-96f2-3fb3f431cff4" />
+<p align="center"><img src="./ASSETS/28.png" width="700" alt="image 28"/></p>
 
 
 👉 Navigate to the design folder 
@@ -1300,7 +1304,7 @@ sudo apt install ngspice
 ngspice day1_nfet_idvds_L025_W065.spice
 ```
 
-<img width="1091" height="781" alt="29" src="https://github.com/user-attachments/assets/da117eb9-dda8-419c-87d6-db1909618eb7" />
+<p align="center"><img src="./ASSETS/29.png" width="700" alt="image 29"/></p>
 
 ---
 
@@ -1308,11 +1312,11 @@ ngspice day1_nfet_idvds_L025_W065.spice
 ```
 plot -vdd#branch
 ```
-<img width="1091" height="943" alt="30" src="https://github.com/user-attachments/assets/d10b920f-7bb3-4d05-9055-e1028240af0f" />
+<p align="center"><img src="./ASSETS/30.png" width="700" alt="image 30"/></p>
 
 
 - left click on the wave form to know waht is the x annd y parameter values at the exact point
-<img width="1091" height="943" alt="31" src="https://github.com/user-attachments/assets/ed20384a-0db7-4756-bca5-6753d5c5c162" />
+<p align="center"><img src="./ASSETS/31.png" width="700" alt="image 31"/></p>
 
 ---
 
