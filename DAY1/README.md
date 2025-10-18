@@ -1,5 +1,8 @@
 # week4
 
+<details>
+<summary><h2> 🌟 THEORY </h2> </summary>
+
 ### **1️⃣ Circuit Design Basics**
 
 - Circuit design revolves around creating logic gates such as **AND, OR, NOR, Inverter, and Buffer**.
@@ -881,6 +884,453 @@ $$
   
 > ✅ The MOSFET in saturation behaves **almost like a constant current source **, controlled primarily by $V_{GS}$
 ---
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<details>
+<summary><h2> 🌟 LAB </h2> </summary>
+
+# SPICE Model Parameters — What Are They? ⚡
+
+- Think of a **MOSFET in SPICE** as not just a symbol on a schematic, but as a **mathematical model**.
+- To simulate it, SPICE needs **numbers** that describe how the real device behaves physically. These numbers are called **SPICE model parameters**.
+
+📌Some of the important SPICE Model parameter 
+
+### **1️⃣ Threshold and Gate Control**
+
+| Parameter | Description |
+| --- | --- |
+| **VTO / VT0** | Threshold voltage (V). Voltage at which the MOSFET starts conducting. |
+| **KP / μCox(W/L)** | Transconductance parameter (A/V²). Determines current drive capability. |
+| **GAMMA** | Body effect coefficient (V^0.5). Modulates VT with substrate bias. |
+
+
+
+### **2️⃣ Channel Modulation & Length Effects**
+
+| Parameter | Description |
+| --- | --- |
+| **LAMBDA (λ)** | Channel-length modulation. Causes slight ID increase in saturation with VDS. |
+| **THETA (θ)** | Mobility degradation factor. Reduces carrier mobility at high VGS. |
+| **VMAX / VSAT** | Velocity saturation. Limits current in short-channel devices. |
+
+
+### **3️⃣ Capacitances (for AC / transient analysis)**
+
+| Parameter | Description |
+| --- | --- |
+| **Cgs, Cgd, Cgb** | Gate-source, gate-drain, gate-bulk capacitances. |
+| **PB** | Bulk junction potential (V). |
+| **MJ / MJSW** | Junction grading coefficients (controls junction capacitance behavior). |
+| **CJSW, CJ** | Sidewall and bottom junction capacitances. |
+
+
+### **4️⃣ Leakage and Subthreshold**
+
+| Parameter | Description |
+| --- | --- |
+| **IS** | Reverse saturation current of junctions. |
+| **N** | Subthreshold slope factor. |
+| **VBI / PB** | Built-in potential of source/drain junctions. |
+
+
+### **5️⃣ Misc / Geometry**
+
+| Parameter | Description |
+| --- | --- |
+| **L, W** | Channel length and width (μm). Directly affects drain current. |
+| **TOX** | Oxide thickness. Affects gate capacitance. |
+| **UO / μn, μp** | Carrier mobility. Affects transconductance. |
+
+---
+## SPICE Simulation Flow
+
+<img width="370" height="742" alt="22" src="https://github.com/user-attachments/assets/def05fdc-070b-4fdf-b621-fb1d84aeaaba" />
+---
+
+## How to Write a SPICE Model for a MOSFET
+
+SPICE needs a **model card** — a short line of text that defines all the important parameters of your MOSFET.
+
+It’s like giving SPICE a **personality file 🧠** for your transistor.
+
+---
+
+### 🔹 1. The Basic Syntax
+
+```
+.MODEL <model_name> <device_type> (parameter1=value1 parameter2=value2 ...)
+```
+
+For an example, let us take a circuit 
+<img width="691" height="441" alt="23" src="https://github.com/user-attachments/assets/d61f5570-7f4d-4633-9b68-dfbb8eb250fe" />
+
+# How to Write a SPICE Model for a MOSFET
+
+SPICE needs a **model card** — a short line of text that defines all the important parameters of your MOSFET.
+
+It’s like giving SPICE a **personality file 🧠** for your transistor.
+
+
+```
+Ml vdd n100 nmos W=1.8u L=1.2u
+R1 in n1 55
+Vdd vdd 0 2.5
+Vin in 0 2.5
+```
+
+---
+
+### 🔹 Line 1 — MOSFET Declaration
+
+```
+Ml vdd n100 nmos W=1.8u L=1.2u
+```
+
+✨ **Meaning:**
+
+| Element | Node |
+| --- | --- |
+| `Ml` | → Name of the MOSFET |
+| `vdd` | → Drain terminal |
+| `n100` | → Gate terminal |
+| (missing) | → Source terminal (maybe tied to ground) |
+| `nmos` | → Model name (should be defined by a `.MODEL` statement) |
+| `W=1.8u` | → Channel width = 1.8 µm |
+| `L=1.2u` | → Channel length = 1.2 µm |
+
+---
+
+### 🔹 Line 2 — Load Resistor
+
+```
+R1 in n1 55
+```
+
+A simple resistor between nodes `in` and `n1` with resistance **55 Ω**.
+
+Used as a **load or bias resistor** in this setup.
+
+---
+
+### 🔹 Line 3 — Supply Voltage Source
+
+```
+Vdd vdd 0 2.5
+```
+
+⚡ Connects the supply rail:
+
+- Positive terminal → node `vdd`
+- Negative terminal → ground (`0`)
+- DC voltage = **2.5 V**
+
+---
+
+### 🔹 Line 4 — Input Voltage Source
+
+```
+Vin in 0 2.5
+
+```
+
+Drives the **input signal**:
+
+- `in` = gate input
+- DC level = **2.5 V**
+
+If it’s meant to be a **pulse input**, you could replace with:
+
+```
+Vin in 0 PULSE(0 2.5 0 1n 1n 10n 20n)
+
+```
+
+(for transient analysis)
+
+---
+
+### 🔹 Missing Model Definition
+
+You’ll need a model like this at the end:
+
+```
+.MODEL nmos NMOS (VTO=0.7 KP=50u LAMBDA=0.02)
+
+```
+
+---
+
+### 🔹 Simulation Directive (Optional)
+
+Add a simulation command such as:
+
+```
+.DC Vin 0 2.5 0.1
+.PRINT DC I(Vdd)
+.END
+
+```
+---
+
+## Adding Technology File & Simulation Commands in SPICE
+
+---
+
+### 🔹 Step 1: Linking the Technology / Model File
+<img width="898" height="569" alt="24" src="https://github.com/user-attachments/assets/a4e49709-befb-45ac-8946-fdce17eddc6e" />
+
+
+
+To make SPICE understand **how the MOSFET behaves**, we must include the **technology model file** (also known as the **process file**).
+
+This file defines all device-level parameters like threshold voltage, mobility, oxide thickness, etc.
+
+👉 Two main ways to include it:
+
+```
+* Option 1 — Include model directly
+.INCLUDE "tsmc_025um_model.mod"
+
+* Option 2 — Include a specific section from a library
+.LIB "tsmc_025um_model.lib" TT
+
+```
+
+
+- `.INCLUDE` → pulls the entire file
+- `.LIB` → loads a **specific process corner** (like TT, SS, FF)
+
+ **TT** → Typical-Typical
+
+ **SS** → Slow-Slow
+
+ **FF** → Fast-Fast
+
+These corners simulate different fabrication conditions.
+
+---
+
+### 🔹 Step 2: Writing the Netlist
+
+Example (NMOS circuit):
+
+```
+*** NMOS Saturation Test Circuit ***
+
+M1 vdd n1 0 0 nmos W=1.8u L=1.2u
+R1 n1 0 55
+Vdd vdd 0 2.5
+Vin n1 0 2.5
+
+.LIB "tsmc_025um_model.lib" TT
+
+```
+
+⚙️ **Explanation:**
+
+- `M1` → NMOS transistor
+- `R1` → Load resistor
+- `Vdd` → Supply voltage
+- `Vin` → Input gate voltage
+- `.LIB` → Technology model reference
+
+---
+
+### 🔹 Step 3: Adding Simulation Commands
+
+These commands tell SPICE *what kind of analysis to perform* 🧠
+
+### 🔸 DC Sweep — For I–V Characteristics
+
+```
+.DC Vin 0 2.5 0.1
+.PRINT DC I(Vdd)
+
+```
+
+### 🔸 Transient Analysis — For Time Response
+
+```
+.TRAN 1u 10u
+.PRINT TRAN V(n1)
+
+```
+
+### 🔸 AC Analysis — For Frequency Response
+
+```
+.AC DEC 10 1Hz 10MegHz
+.PRINT AC V(n1)
+
+```
+
+---
+
+### 🔹 Step 4: Ending the Simulation
+
+Always close the file properly 👇
+
+```
+.END
+
+```
+---
+
+
+
+
+
+## Ngspice - Simulation
+
+First step clone this git repo...
+
+```bash
+git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git
+```
+<img width="1097" height="495" alt="25" src="https://github.com/user-attachments/assets/8fd6a86d-650a-4cde-9bc9-eedbc0dd1dc0" />
+
+
+
+now the directory will be looks like this 
+
+```bash
+~/Desktop/open_source_tapout/week4/
+└── sky130CircuitDesignWorkshop
+    ├── README.md
+    └── design
+        ├── day1_nfet_idvds_L2_W5.spice
+        ├── day2_nfet_idvds_L015_W039.spice
+        ├── day2_nfet_idvgs_L015_W039.spice
+        ├── day3_inv_tran_Wp084_Wn036.spice
+        ├── day3_inv_vtc_Wp084_Wn036.spice
+        ├── day4_inv_noisemargin_wp1_wn036.spice
+        ├── day5_inv_devicevariation_wp7_wn042.spice
+        ├── day5_inv_supplyvariation_Wp1_Wn036.spice
+        └── sky130_fd_pr
+            ├── LICENSE
+            ├── README.rst
+            ├── models
+            │   ├── all.spice
+            │   ├── parameters
+            │   └── sky130.lib.spice
+            └── cells
+                ├── nfet_01v8
+                │   ├── sky130_fd_pr__nfet_01v8.pm3.spice
+                │   ├── sky130_fd_pr__nfet_01v8__ff.corner.spice
+                │   ├── sky130_fd_pr__nfet_01v8__ff.pm3.spice
+                │   ├── sky130_fd_pr__nfet_01v8__fs.corner.spice
+                │   ├── sky130_fd_pr__nfet_01v8__fs.pm3.spice
+                │   ├── sky130_fd_pr__nfet_01v8__mismatch.corner.spice
+                │   ├── sky130_fd_pr__nfet_01v8__sf.corner.spice
+                │   ├── sky130_fd_pr__nfet_01v8__sf.pm3.spice
+                │   ├── sky130_fd_pr__nfet_01v8__ss.corner.spice
+                │   ├── sky130_fd_pr__nfet_01v8__ss.pm3.spice
+                │   ├── sky130_fd_pr__nfet_01v8__tt.corner.spice
+                │   └── sky130_fd_pr__nfet_01v8__tt.pm3.spice
+                └── pfet_01v8
+                    (similar structure as nfet_01v8)
+
+```
+
+<img width="1097" height="707" alt="26" src="https://github.com/user-attachments/assets/168c2940-2d90-4fe9-b75f-19597ccc8a2d" />
+
+
+
+lets explore what inside a actual spice model 
+
+```bash
+cd design 
+ls
+
+nano day1_nfet_idvds_L025_W065.spice
+```
+<img width="1087" height="402" alt="27" src="https://github.com/user-attachments/assets/798cfaa5-ab4c-4bc5-9d63-5d0437f5ca20" />
+
+
+<img width="1087" height="402" alt="28" src="https://github.com/user-attachments/assets/36744680-1bb4-4438-96f2-3fb3f431cff4" />
+
+
+navigate to the design folder 
+
+```bash
+~/Desktop/open_source_tapout/week4/sky130CircuitDesignWorkshop/design: 
+```
+
+if you dont have the ngspice download it 
+
+```bash
+sudo apt install ngspice
+```
+- after installed the ngspice 
+
+```
+ngspice day1_nfet_idvds_L025_W065.spice
+```
+
+<img width="1091" height="781" alt="29" src="https://github.com/user-attachments/assets/da117eb9-dda8-419c-87d6-db1909618eb7" />
+
+
+- then plot the vdd 
+```
+plot -vdd#branch
+```
+<img width="1091" height="943" alt="30" src="https://github.com/user-attachments/assets/d10b920f-7bb3-4d05-9055-e1028240af0f" />
+
+
+- left click on the wave form to know waht is the x annd y parameter values at the exact point
+<img width="1091" height="943" alt="31" src="https://github.com/user-attachments/assets/ed20384a-0db7-4756-bca5-6753d5c5c162" />
+
+---
+
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
