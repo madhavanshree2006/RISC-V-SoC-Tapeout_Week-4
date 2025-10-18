@@ -1,4 +1,4 @@
-# week4
+# week4 DAY1- Basics of NMOS Drain current (Id) vs Drain-to-source Voltage (Vds)
 
 <details>
 <summary><h2> 🌟 THEORY </h2> </summary>
