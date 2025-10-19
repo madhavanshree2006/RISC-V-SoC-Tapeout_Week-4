@@ -1,5 +1,5 @@
 
-# Week4 DAY2 –**CMOS Switching Threshold & Dynamic Simulation (Ngspice Sky130)**
+# Week4 DAY3 –**CMOS Switching Threshold & Dynamic Simulation (Ngspice Sky130)**
 
 
 
