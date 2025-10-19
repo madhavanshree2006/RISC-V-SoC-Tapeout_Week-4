@@ -174,7 +174,7 @@ Before simulating variation in a CMOS inverter, we must first **identify the sou
 
 ### 🧩 Inverter Structure View
 
-![3.png](week4%202915f99c9dcb80978dfbec52a6df43c7/3.png)
+<p align="center"><img src="./ASSETS/3.png" width="700" alt="image 3"/></p>
 
 - PMOS at top, NMOS at bottom
 - Polysilicon gate (red)
@@ -188,9 +188,9 @@ If etching is imperfect, the **actual W & L** differ from designed values.
 
 ### ⚙️ Etching Induced Variation
 
-![4.png](week4%202915f99c9dcb80978dfbec52a6df43c7/4.png)
+<p align="center"><img src="./ASSETS/4.png" width="700" alt="image 4"/></p>
 
-![5.png](week4%202915f99c9dcb80978dfbec52a6df43c7/5.png)
+<p align="center"><img src="./ASSETS/5.png" width="700" alt="image 5"/></p>
 
 In an ideal case → clean rectangular geometry
 
@@ -210,7 +210,7 @@ For a **chain of inverters**, small local W/L changes accumulate → delay misma
 
 ### Sources of Variation – Oxide Thickness
 
-![6.png](week4%202915f99c9dcb80978dfbec52a6df43c7/6.png)
+<p align="center"><img src="./ASSETS/6.png" width="700" alt="image 6"/></p>
 
 ### 🧩 Cross-Section View of a MOSFET
 
@@ -250,7 +250,7 @@ Even small oxide thickness fluctuations across devices lead to local mismatch in
 
 To verify how robust a CMOS inverter is when PMOS and NMOS device sizes are swept across their extremes.
 
-![7.png](week4%202915f99c9dcb80978dfbec52a6df43c7/7.png)
+<p align="center"><img src="./ASSETS/7.png" width="700" alt="image 7"/></p>
 
 ### ⚙️ Simulation Setup
 
@@ -372,7 +372,7 @@ Hence, **CMOS logic is intrinsically robust to fabrication and device variations
     
     ```
     
-    ![1.png](week4-lab%202805f99c9dcb80e48e4ee8a3457c6f65/1.png)
+<p align="center"><img src="./ASSETS/1.png" width="700" alt="image 1"/></p>
     
     ```bash
     
@@ -385,7 +385,7 @@ Hence, **CMOS logic is intrinsically robust to fabrication and device variations
 2. Observe **VTC curves** for:
     - 1.8 V, 1.6 V, 1.4 V, 1.2 V, 1.0 V, 0.8 V
 
-![2.png](week4-lab%202805f99c9dcb80e48e4ee8a3457c6f65/2.png)
+<p align="center"><img src="./ASSETS/2.png" width="700" alt="image 2"/></p>
 
 1. Compute **gain** using:Av=ΔVinΔVout
     
@@ -462,9 +462,9 @@ ngspice inv_device_variation.spice
 plot v(out) vs v(in)
 ```
 
-![8.png](week4-lab%202805f99c9dcb80e48e4ee8a3457c6f65/8.png)
+<p align="center"><img src="./ASSETS/8.png" width="700" alt="image 8"/></p>
 
-![9.png](week4-lab%202805f99c9dcb80e48e4ee8a3457c6f65/9.png)
+<p align="center"><img src="./ASSETS/9.png" width="700" alt="image 9"/></p>
 
 ### 📊 Observation
 
