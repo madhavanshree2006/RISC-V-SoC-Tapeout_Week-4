@@ -57,31 +57,62 @@ This defines the **point of maximum sensitivity** and **logic symmetry**.
 
 ### 📐 3. **Analytical Expressions**
 
-### (a) **Vm as a function of (W/L)p and (W/L)n**
+#### (a) \(V_m\) as a function of NMOS/PMOS aspect ratios
 
-Vm=VDD+VTNμn(W/L)nμp(W/L)p−∣VTP∣1+μn(W/L)nμp(W/L)pV_m = \frac{V_{DD} + V_{TN}\sqrt{\frac{\mu_n(W/L)_n}{\mu_p(W/L)_p}} - |V_{TP}|}{1 + \sqrt{\frac{\mu_n(W/L)_n}{\mu_p(W/L)_p}}}
+The **switching threshold** \(V_m\) occurs when \(I_{DN} = I_{DP}\). It can be expressed as:
 
-Vm=1+μp(W/L)pμn(W/L)n
+$$
+Vm = (VDD + VTN × √(μn·(W/L)n / μp·(W/L)p) - |VTP|) 
+     ÷ (1 + √(μn·(W/L)n / μp·(W/L)p))
 
-VDD+VTNμp(W/L)pμn(W/L)n
-
-−∣VTP∣
+$$
 
 Where:
 
-- μn,μp\mu_n, \mu_pμn,μp: Mobilities of NMOS and PMOS
-- VTN,VTPV_{TN}, V_{TP}VTN,VTP: Threshold voltages
-- (W/L)n,(W/L)p(W/L)_n, (W/L)_p(W/L)n,(W/L)p: Aspect ratios of NMOS and PMOS
+- $\mu_n, \mu_p$ → mobilities of NMOS and PMOS  
+- $V_{TN}, V_{TP}$ → threshold voltages  
+- $(W/L)_n, (W/L)_p$ → aspect ratios of NMOS and PMOS  
 
 ---
 
-### (b) **(W/L)p and (W/L)n as a function of Vm**
+#### (b) Simplified \(V_m\) form
 
-By rearranging:
+A more intuitive approximation:
 
-(W/L)p(W/L)n=μn(VDD−Vm−VTN)2μp(Vm+VTP)2\frac{(W/L)_p}{(W/L)_n} = \frac{\mu_n(V_{DD} - V_m - V_{TN})^2}{\mu_p(V_m + V_{TP})^2}
+$$
+Vm ≈ VDD + VTN × √(μn·(W/L)n ÷ μp·(W/L)p) - |VTP|
 
-(W/L)n(W/L)p=μp(Vm+VTP)2μn(VDD−Vm−VTN)2
+$$
+
+---
+
+#### (c) Aspect ratio as a function of \(V_m\)
+
+To design a CMOS inverter for a **desired switching threshold**:
+
+$$
+(W/L)p ÷ (W/L)n = μn × (VDD - Vm - VTN)^2 ÷ μp × (Vm + |VTP|)^2
+$$
+
+Or equivalently:
+
+$$
+(W/L)n ÷ (W/L)p = μp × (Vm + |VTP|)^2 ÷ μn × (VDD - Vm - VTN)^2
+$$
+
+---
+
+#### (d) Design interpretation
+
+- **Increasing $(W/L)_p$** → shifts the VTC **right**, balancing the inverter (higher PMOS drive).  
+- **Decreasing $(W/L)_p$** → shifts the VTC **left**, NMOS dominance.  
+- **Balanced switching** occurs when:
+
+$$
+√(μn·(W/L)n ÷ μp·(W/L)p) ≈ 1
+$$
+
+---
 
 🧩 **Interpretation:**
 
