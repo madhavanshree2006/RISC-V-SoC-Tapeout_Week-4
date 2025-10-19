@@ -9,7 +9,7 @@
 
 Every digital gate (including a CMOS inverter) must tolerate certain variations in voltage due to **glitches, crosstalk, and supply noise**. The **noise margin** quantifies how much noise a gate can withstand without logic failure.
 
-![1.png](week4%202915f99c9dcb80978dfbec52a6df43c7/1.png)
+<p align="center"><img src="./ASSETS/1.png" width="700" alt="image 1"/></p>
 
 To understand this, you imagine the **VTC (Voltage Transfer Curve)** of the inverter:
 
@@ -29,7 +29,7 @@ So we extract practical voltage thresholds:
 - **VIL** → Max input voltage still treated as logic 0
 - **VIH** → Min input voltage treated as logic 1
 
-![2.png](week4%202915f99c9dcb80978dfbec52a6df43c7/2.png)
+<p align="center"><img src="./ASSETS/2.png" width="700" alt="image 2"/></p>
 
 ---
 
@@ -127,9 +127,9 @@ Using **Sky130 PDK** and `ngspice`, a DC sweep was done:
 
 By clicking on slopes where derivative ≈ −1, we identified:
 
-![3.png](week4%202915f99c9dcb80978dfbec52a6df43c7/3.png)
+<p align="center"><img src="./ASSETS/3.png" width="700" alt="image 3"/></p>
 
-![4.png](week4%202915f99c9dcb80978dfbec52a6df43c7/4.png)
+<p align="center"><img src="./ASSETS/4.png" width="700" alt="image 4"/></p>
 
 Example values:d
 
