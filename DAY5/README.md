@@ -346,7 +346,7 @@ Hence, **CMOS logic is intrinsically robust to fabrication and device variations
 
   
 <details>
-<summary><h2> 🌟 THEORY </h2> </summary>
+<summary><h2> 🌟 LAB </h2> </summary>
 
 
 # Sky130 Supply Variation Lab
