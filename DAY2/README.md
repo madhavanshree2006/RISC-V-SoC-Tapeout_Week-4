@@ -210,7 +210,7 @@ This gives the real-world MOSFET its slightly non-flat saturation curve.
 
 ## ⚡ **PMOS Load Curve Derivation**
 
-<p align="center"><img src="./ASSETS/1.png" width="700" alt="image 1"/></p>
+<p align="center"><img src="./ASSETS/1.png" width="500" alt="image 1"/></p>
 
 Now, we move to constructing **load curves** for our **PMOS device** that sits at the top of a CMOS inverter.
 
@@ -240,7 +240,7 @@ Example:
 
 So as we move the curve left by VDD, the axis becomes referenced to Vout instead of VDSP.
 
-<p align="center"><img src="./ASSETS/2.png" width="700" alt="image 2"/></p>
+<p align="center"><img src="./ASSETS/2.png" width="500" alt="image 2"/></p>
 
 ### 🔸 Interpretation
 
@@ -253,7 +253,7 @@ This PMOS load curve now directly shows how the PMOS sources current to charge t
 
 ## ⚡ **NMOS Load Curve Derivation**
 
-<p align="center"><img src="./ASSETS/3.png" width="700" alt="image 3"/></p>
+<p align="center"><img src="./ASSETS/3.png" width="500" alt="image 3"/></p>
 
 For the NMOS, the connection is simpler:
 
@@ -268,7 +268,7 @@ So:
 
 This makes the NMOS load curve **directly dependent** on Vin and Vout, without any axis shifting or translation like PMOS.
 
-<p align="center"><img src="./ASSETS/4.png" width="700" alt="image 4"/></p>
+<p align="center"><img src="./ASSETS/4.png" width="500" alt="image 4"/></p>
 
 We can directly replace:
 
@@ -277,7 +277,7 @@ We can directly replace:
 
 Hence, drawing NMOS load curves is straightforward — just plot ID vs Vout for different Vin values.
 
-<p align="center"><img src="./ASSETS/5.png" width="700" alt="image 5"/></p>
+<p align="center"><img src="./ASSETS/5.png" width="500" alt="image 5"/></p>
 
 ---
 
@@ -291,7 +291,7 @@ At each Vin value, the **intersection point** of both curves gives the operating
 
 This intersection defines the output voltage for that input — and plotting these intersection points forms our **VTC (Voltage Transfer Characteristic)** curve of the CMOS inverter.
 
-<p align="center"><img src="./ASSETS/6.png" width="700" alt="image 6"/></p>
+<p align="center"><img src="./ASSETS/6.png" width="500" alt="image 6"/></p>
 
 ---
 
@@ -309,7 +309,7 @@ Below is what happens 👇
 | 1.5 | 0–0.5 | Saturation | Linear | Output LOW |
 | 2.0 | 0 | Cutoff | Linear | Output pulled fully low |
 
-<p align="center"><img src="./ASSETS/7.png" width="700" alt="image 7"/></p>
+<p align="center"><img src="./ASSETS/7.png" width="500" alt="image 7"/></p>
 
 ---
 
@@ -365,7 +365,7 @@ This behavior defines the **charging and discharging current paths** and explain
 
 ## **Velocity Saturation & Scaling Impact**
 
-<p align="center"><img src="./ASSETS/8.png" width="700" alt="image 8"/></p>
+<p align="center"><img src="./ASSETS/8.png" width="500" alt="image 8"/></p>
 
 As we move to **lower technology nodes**, electric fields become extremely high even for small VDS.
 
