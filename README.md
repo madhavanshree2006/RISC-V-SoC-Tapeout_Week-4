@@ -1,6 +1,6 @@
 <h1 align="center">🔳 RISC-V SoC Tapeout Program — Week 4️⃣</h1>
 
-<p align="center"><img src=" DAY1/ASSETS/0.png" width="500" alt="image 0"/></p>
+<p align="center"><img alt="0" src="https://github.com/user-attachments/assets/399935b7-d88a-4fda-911a-904ce2600f40" width="500" alt="image 0"/></p>
 
 
 
